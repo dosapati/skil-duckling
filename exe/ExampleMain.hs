@@ -74,7 +74,7 @@ main = do
     maybe defaultConfig (`setPort` defaultConfig) (readMaybe =<< p)
   setupLogs conf
   httpServe conf $
-    ifTop (writeBS "quack!") <|>
+    ifTop (writeBS "quack 123!") <|>
     route
       [ ("targets", method GET targetsHandler)
       , ("parse", method POST $ parseHandler tzs)

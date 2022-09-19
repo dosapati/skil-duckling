@@ -99,6 +99,20 @@ ruleQuantityOfProduct = Rule
     _ -> Nothing
   }
 
+ruleQuantityProduct :: Rule
+ruleQuantityProduct = Rule
+  { name = "<quantity> product"
+  , pattern =
+    [ dimension Quantity
+    , regex "of (\\w+)"
+    ]
+  , prod = \case
+    (Token Quantity qd:Token RegexMatch (GroupMatch (product:_)):_) ->
+      Just . Token Quantity $ withProduct (Text.toLower product) qd
+    _ -> Nothing
+  }
+
+
 rulePrecision :: Rule
 rulePrecision = Rule
     { name = "about|exactly <quantity>"
@@ -243,6 +257,7 @@ ruleQuantityLatent = Rule
 rules :: [Rule]
 rules =
   [ ruleQuantityOfProduct
+  , ruleQuantityProduct
   , ruleIntervalMin
   , ruleIntervalMax
   , ruleIntervalBetweenNumeral

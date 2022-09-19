@@ -72,6 +72,8 @@ allExamples = concat
   , examples (simple Cup 3 (Just "sugar"))
              [ "3 Cups of sugar"
              , "3 Cups of SugAr"
+             , "3 Cup sugar"
+             , "3 Cup SugAr"
              ]
   , examples (simple Cup 0.75 Nothing)
              [ "3/4 cup"

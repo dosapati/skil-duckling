@@ -18,6 +18,16 @@ On Linux and MacOS you'll need to install PCRE development headers.
 On Linux, use your package manager to install them.
 On MacOS, the easiest way to install them is with [Homebrew](https://brew.sh/):
 
+## Run
+```bash
+docker build  -t skil_duckling .
+```
+
+## Run
+```bash
+docker run -p 8000:8000 -d skil-duckling
+```
+
 ```bash
 brew install pcre
 ```

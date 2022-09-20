@@ -75,23 +75,23 @@ allExamples = concat
              , "3 Cup sugar"
              , "3 Cup SugAr"
              ]
-  , examples (simple Size large (Just "sugar"))
+  , examples (simple Size 3 (Just "sugar"))
                [ "3 large sugar"
                , "3 large SugAr"
-               , "2 Large sugar"
+               , "3 Large sugar"
                , "3 lg SugAr"
                ]
-  , examples (simple Size medium (Just "sugar"))
-               [ "3 medium sugar"
-               , "3 medium SugAr"
+  , examples (simple Size 2 (Just "sugar"))
+               [ "2 medium sugar"
+               , "2 medium SugAr"
                , "2 medium sugar"
-               , "3 md SugAr"
+               , "2 md SugAr"
                ]
-  , examples (simple Size small (Just "sugar"))
-               [ "3 small sugar"
-               , "3 small SugAr"
-               , "2 small sugar"
-               , "3 sm SugAr"
+  , examples (simple Size 5 (Just "sugar"))
+               [ "5 small sugar"
+               , "5 small SugAr"
+               , "5 small sugar"
+               , "5 sm SugAr"
                ]
   , examples (simple Cup 0.75 Nothing)
              [ "3/4 cup"

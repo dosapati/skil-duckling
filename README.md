@@ -20,13 +20,27 @@ On MacOS, the easiest way to install them is with [Homebrew](https://brew.sh/):
 
 ## Run
 ```bash
-docker build  -t skil_duckling .
+docker build  -t skil_duckling:latest .
 ```
 
 ## Run
 ```bash
-docker run -p 8000:8000 -d skil-duckling
+docker run -d -p 8000:8000 --name skil-duckling skil_duckling:latest
 ```
+
+## check docker logs
+``
+docker logs --tail 3000 -f skil-duckling
+``
+
+## docker clean
+``
+docker system prune -a
+``
+#### force clean
+``
+docker system prune -a -f
+``
 
 ```bash
 brew install pcre

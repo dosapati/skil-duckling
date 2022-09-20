@@ -34,6 +34,7 @@ data Unit
   | Ounce
   | Pint
   | Pound
+  | Size
   | Quart
   | Tablespoon
   | Teaspoon

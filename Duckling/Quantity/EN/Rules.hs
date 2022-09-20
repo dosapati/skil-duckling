@@ -33,6 +33,7 @@ import qualified Duckling.Quantity.Types as TQuantity
 quantities :: [(Text, String, TQuantity.Unit)]
 quantities =
   [ ("<quantity> cups", "((cups|cup)s?)", TQuantity.Cup)
+  , ("<quantity> large", "((large|small|medium|lg|sm|md)s?)", TQuantity.Size)
   , ("<quantity> grams", "(((m(illi)?[.]?)|(k(ilo)?)[.]?)?g(ram)?s?[.]?)[.]?", TQuantity.Gram)
   , ("<quantity> lb", "((lb|pound)s?)", TQuantity.Pound)
   , ("<quantity> oz", "((ounces?)|oz)", TQuantity.Ounce)
@@ -99,7 +100,7 @@ ruleQuantityOfProduct = Rule
     _ -> Nothing
   }
 
-ruleQuantityProduct :: Rule
+{-ruleQuantityProduct :: Rule
 ruleQuantityProduct = Rule
   { name = "<quantity> product"
   , pattern =
@@ -110,7 +111,7 @@ ruleQuantityProduct = Rule
     (Token Quantity qd:Token RegexMatch (GroupMatch (product:_)):_) ->
       Just . Token Quantity $ withProduct (Text.toLower product) qd
     _ -> Nothing
-  }
+  }-}
 
 
 rulePrecision :: Rule
@@ -257,7 +258,6 @@ ruleQuantityLatent = Rule
 rules :: [Rule]
 rules =
   [ ruleQuantityOfProduct
-  , ruleQuantityProduct
   , ruleIntervalMin
   , ruleIntervalMax
   , ruleIntervalBetweenNumeral
